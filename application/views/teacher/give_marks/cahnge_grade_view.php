@@ -8,7 +8,7 @@
             foreach ($marking as $markjes) {
                 echo"<tr>";
                 echo "<td><b>lesson:</b></td>";
-                echo "<td>" . $markjes->lesson . "</td>";
+                echo "<input type='text' value='" . $markjes->lesson . "' placeholder='" . $markjes->lesson . "' /></td>";
                 echo"</tr>";
                 echo"<tr>";
                 echo "<td><b>grade:</b></td>";
@@ -27,6 +27,7 @@
                     array_push($cijfers, $markjes->lesson);
                 }
             }
+            var_dump($cijfers);
             ?>  
         </table>
         </form>

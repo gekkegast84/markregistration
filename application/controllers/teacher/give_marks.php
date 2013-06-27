@@ -87,6 +87,11 @@ class give_marks extends CI_Controller
             if(isset($_POST['change']))
             {
                 $data['marking'] = $this->give_marks_model->change();
+                $data['main_content'] = 'teacher/give_marks/change_grade_view';
+            }
+            else
+            {
+                echo"not found";
             }
         }
 }

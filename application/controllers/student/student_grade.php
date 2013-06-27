@@ -16,6 +16,7 @@ class student_grade extends CI_Controller {
             $data['roles'] = $session_data['roles'];
             foreach ($session_data['roles'] as $role) {
                 if ($role['role_id'] == 1) {
+
                     $data['main_content'] = 'student/student_period_view';
                 }
                 $this->load->view('template', $data);
@@ -27,29 +28,24 @@ class student_grade extends CI_Controller {
     }
 
     function show_grades() {
-        var_dump($_POST);
         $this->load->model('student_grade_model');
-        if (isset($_POST['vak'])) {
-
-            $period = $_POST['vak'];
-            $data['periode'] = $period;
-            $data['periodes'] = $this->student_grade_model->get_grade_info($period);
-            $data['main_content'] = 'student/student_grade_view';
-            
-            if ($period['grade'] <= 5.5) {
-                echo"<div class='badmark'>";
-                echo"</div>";
-            } else if ($period['grade'] > 5.5) {
-                echo"<div class='goodmark'>";
-                echo"</div>";
-            } else if ($period['grade'] >= 8) {
-                echo"<div class='greatmark'>";
-                echo"</div>";
+        if ($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            echo "<b>username: </b>" . $session_data['username'];
+            date_default_timezone_set('Europe/Amsterdam');
+            $date = date('Y/m/d H:i:s');
+            echo "<b></br>Current time: </b>" . $date;
+            echo'<br/><b>this report is official.</b>';
+            if (isset($_POST['vak'])) {
+                $period = $_POST['vak'];
+                $data['periode'] = $period;
+                $data['periodes'] = $this->student_grade_model->insert_user($period);
+                $data['main_content'] = 'student/student_grade_view';
+            } else {
+                echo "u didnt choose a lesson";
             }
-        } else {
-            echo "u didnt choose a lesson";
+            $this->load->view('template', $data);
         }
-        $this->load->view('template', $data);
     }
 
 }

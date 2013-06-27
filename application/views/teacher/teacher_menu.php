@@ -21,9 +21,11 @@ foreach($session_data['roles'] as $role)
             </p>
             <ul class="nav">
                 <li><a href='<?php echo base_url(); ?>home'>teachers homepage</a></li>
+                <li><a href='<?php echo base_url(); ?>show_classes'>Class summary</a></li>
                 <li><a href='<?php echo base_url(); ?>teacher/give_marks'>give marks</a></li>
           <?php if ($role['role_id'] == 3 || $role['role_id'] == 4) {?>
                 <li><a href='<?php echo base_url(); ?>teacher/change_student_info'>change student info</a></li>
+                <li><a href='<?php echo base_url(); ?>teacher/insert_student'>insert student</a></li>
           <?php } ?>
                 <li><a href='<?php echo base_url(); ?>home/logout'>Logout</a></li>
             </ul>

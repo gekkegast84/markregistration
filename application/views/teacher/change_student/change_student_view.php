@@ -8,7 +8,7 @@
           <div class='control-group'>
             <label class='control-label' for='inputUsername'>username:</label>
             <div class='controls'>
-              <input type='text' name='username' placeholder=' $usert->username '>
+              <input type='text' name='username' value=' $usert->username'>
             </div>
           </div>
 

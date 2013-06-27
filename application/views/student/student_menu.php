@@ -17,7 +17,7 @@ foreach($session_data['roles'] as $role)
                <a href="<?php echo base_url(); ?>home" class="navbar-link">Welcome student!</a>
             </p>
             <ul class="nav">
-                <li><a href='<?php echo base_url(); ?>home'>students homepage</a></li>
+                <li><a href='<?php echo base_url(); ?>home'>students homepage</a></li>               
                 <li><a href='<?php echo base_url(); ?>student/student_info'>personal info</a></li>
                 <li><a href='<?php echo base_url(); ?>student/student_grade'>my grades</a></li>
                 <li><a href='<?php echo base_url(); ?>home/logout'>Logout</a></li>
